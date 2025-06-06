@@ -72,7 +72,7 @@ def generate_report():
     font_path = os.path.join('fonts', 'ARIAL.TTF')
 
     # Dynamically set font size based on image width
-    font_size = int(width / 20)  # larger font, adjust divisor if needed
+    font_size = int(width / 25)  # larger font, adjust divisor if needed
     try:
         font = ImageFont.truetype(font_path, size=font_size)
 
