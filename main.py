@@ -68,10 +68,14 @@ def generate_report():
     draw = ImageDraw.Draw(image)
     width, height = image.size
 
+    # Get the absolute path to the font file
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    font_path = os.path.join(base_dir, 'fonts', 'arial.ttf')
+
     # Dynamically set font size based on image width
     font_size = int(width / 20)  # larger font, adjust divisor if needed
     try:
-        font = ImageFont.truetype("fonts/ARIAL.ttf", size=font_size)
+        font = ImageFont.truetype(font_path, size=font_size)
 
     except IOError:
         return jsonify({'error': 'Font not found. Make sure arial.ttf is available.'}), 500
