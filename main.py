@@ -58,33 +58,28 @@ def generate_report():
 
     summary = data['summary']
 
-    # Load and resize image
+    # Load the image
     template_path = os.path.join('static', 'Lab_Summary.png')
     try:
         image = Image.open(template_path).convert('RGB')
     except FileNotFoundError:
         return jsonify({'error': 'Template image not found.'}), 404
 
-    # Resize image (optional, depending on your design)
-    desired_width = 1240  # For better quality (e.g., 1240x1754 ~ A4 at 150 DPI)
-    aspect_ratio = image.height / image.width
-    resized_height = int(desired_width * aspect_ratio)
-    image = image.resize((desired_width, resized_height))
-
     draw = ImageDraw.Draw(image)
+    width, height = image.size
 
-    # Dynamically scale font size with image size
-    font_size = 150  # Adjustable scaling factor
+    # Dynamically set font size based on image width
+    font_size = int(width / 20)  # larger font, adjust divisor if needed
     try:
         font = ImageFont.truetype("arial.ttf", size=font_size)
     except IOError:
-        font = ImageFont.load_default()
+        return jsonify({'error': 'Font not found. Make sure arial.ttf is available.'}), 500
 
-    # Define position and wrapping
-    start_x = int(desired_width * 0.07)
-    start_y = int(resized_height * 0.43)
-    line_spacing = int(font_size * 1.0)
-    max_chars_per_line = 50
+    # Define position and text layout
+    start_x = int(width * 0.07)
+    start_y = int(height * 0.60)  # push it further down below "notes"
+    max_chars_per_line = 40  # fewer chars per line for bigger text
+    line_spacing = int(font_size * 1.3)
 
     lines = textwrap.wrap(summary, width=max_chars_per_line)
     for i, line in enumerate(lines):
