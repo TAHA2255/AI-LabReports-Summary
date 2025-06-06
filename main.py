@@ -74,7 +74,7 @@ def generate_report():
     draw = ImageDraw.Draw(image)
 
     # Dynamically scale font size with image size
-    font_size = int(desired_width / 40)  # Adjustable scaling factor
+    font_size = int(desired_width / 20)  # Adjustable scaling factor
     try:
         font = ImageFont.truetype("arial.ttf", size=font_size)
     except IOError:
