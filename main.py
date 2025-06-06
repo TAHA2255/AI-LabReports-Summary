@@ -68,9 +68,8 @@ def generate_report():
     draw = ImageDraw.Draw(image)
     width, height = image.size
 
-    # Get the absolute path to the font file
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    font_path = os.path.join(base_dir, 'fonts', 'arial.ttf')
+  
+    font_path = os.path.join('fonts', 'ARIAL.TTF')
 
     # Dynamically set font size based on image width
     font_size = int(width / 20)  # larger font, adjust divisor if needed
