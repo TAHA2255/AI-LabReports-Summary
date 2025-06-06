@@ -37,7 +37,7 @@ def generate_report():
     start_x = 100
     start_y = 700  # Below "NOTES:"
     line_spacing = 30
-    max_chars_per_line = 60
+    max_chars_per_line = 90
 
     # Wrap and draw text
     lines = textwrap.wrap(summary, width=max_chars_per_line)
