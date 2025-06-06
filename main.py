@@ -74,7 +74,7 @@ def generate_report():
     draw = ImageDraw.Draw(image)
 
     # Dynamically scale font size with image size
-    font_size = 80  # Adjustable scaling factor
+    font_size = 150  # Adjustable scaling factor
     try:
         font = ImageFont.truetype("arial.ttf", size=font_size)
     except IOError:
@@ -83,8 +83,8 @@ def generate_report():
     # Define position and wrapping
     start_x = int(desired_width * 0.07)
     start_y = int(resized_height * 0.43)
-    line_spacing = int(font_size * 1.6)
-    max_chars_per_line = 80
+    line_spacing = int(font_size * 1.0)
+    max_chars_per_line = 50
 
     lines = textwrap.wrap(summary, width=max_chars_per_line)
     for i, line in enumerate(lines):
