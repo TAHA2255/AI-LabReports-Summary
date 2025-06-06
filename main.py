@@ -72,8 +72,9 @@ def generate_report():
     font_size = int(width / 20)  # larger font, adjust divisor if needed
     try:
         font = ImageFont.truetype("arial.ttf", size=font_size)
+
     except IOError:
-        return jsonify({'error': 'Font not found. Make sure arial.ttf is available.'}), 500
+        font = ImageFont.load_default()
 
     # Define position and text layout
     start_x = int(width * 0.07)
