@@ -71,7 +71,7 @@ def generate_report():
     # Dynamically set font size based on image width
     font_size = int(width / 20)  # larger font, adjust divisor if needed
     try:
-        font = ImageFont.truetype("arial.ttf", size=font_size)
+        font = ImageFont.truetype("fonts/arial.ttf", size=font_size)
 
     except IOError:
         font = ImageFont.load_default()
