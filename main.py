@@ -85,7 +85,7 @@ def generate_report_arabic():
         return jsonify({'error': 'Font not found. Make sure arial.ttf is available.'}), 500
 
     # Define position and text layout
-    start_x = int(width * 0.07)
+    start_x = int(width * 0.15)
     start_y = int(height * 0.40)  # push it further down below "notes"
     max_chars_per_line = 50  # fewer chars per line for bigger text
     line_spacing = int(font_size * 1.3)
